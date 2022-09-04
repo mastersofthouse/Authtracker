@@ -1,0 +1,57 @@
+{
+    "name": "softhouse/authtracker",
+    "description": "Auth Tracker",
+    "keywords": [
+        "authtracker",
+        "authtracker"
+    ],
+    "homepage": "https://github.com/softhouse/authtracker",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mateus Soares",
+            "email": "contato@mastersofthouse.app.br",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0|^8.1",
+        "ext-json": "*",
+        "laravel/framework": "^8.37|^9.0",
+        "symfony/var-dumper": "^5.0|^6.0",
+        "hisorange/browser-detect": "^4.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SoftHouse\\AuthTracker\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SoftHouse\\AuthTracker\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SoftHouse\\AuthTracker\\AuthTrackerServiceProvider"
+            ],
+            "aliases": {
+                "Authtracker": "SoftHouse\\AuthTracker\\AuthTrackerFacade"
+            }
+        }
+    }
+}
