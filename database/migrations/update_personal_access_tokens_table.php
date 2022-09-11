@@ -20,7 +20,6 @@ class UpdatePersonalAccessTokensTable extends Migration
                 $table->json('device')->nullable();
             });
             $table->after('updated_at', function ($table) {
-                $table->timestamp('expires_at')->nullable();
                 $table->softDeletes();
             });
         });
