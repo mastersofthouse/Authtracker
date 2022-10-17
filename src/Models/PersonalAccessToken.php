@@ -46,7 +46,7 @@ class PersonalAccessToken extends SanctumPersonalAccessToken
             ]);
 
             if ($minutes = config('sanctum.expiration')) {
-                $personalAccessToken->expiresAt(Carbon::now()->addMinutes($minutes));
+                $personalAccessToken->expires_at = Carbon::now()->addMinutes($minutes);
             }
 
         });
@@ -58,6 +58,6 @@ class PersonalAccessToken extends SanctumPersonalAccessToken
 
     public function tokenable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
-        return $this->morphTo('tokenable')->withoutGlobalScope(new TeamScope());
+        return $this->morphTo('tokenable');
     }
 }
